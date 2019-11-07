@@ -11,16 +11,16 @@ import java.io.Serializable;
 
 @Data
 @RequiredArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true   )
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Embeddable
-public class TypCdVwKey implements Serializable {
+public class CmsUdcvUsrdfndPK implements Serializable {
 
     @Column(name="CDCI_CD_ITM_ID")
     private final int cdciCdItmId;
 
+    @Column(name="CDCI_ITM_VER_NBR")
+    private final short cdciItmVerNbr;
+
     @Column(name="CDCV_DOMN_VAL")
     private final String cdcvDomnVal;
-
-    @Column(name="UCFR_FLTR_VAL")
-    private final String ucfrFltrVal;
 }

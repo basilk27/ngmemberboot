@@ -4,11 +4,13 @@ import com.anthem.member.ngmemberboot.model.TypCdVw;
 import com.anthem.member.ngmemberboot.model.TypCdVwKey;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
+@Repository
 public interface TypCdVwRepository extends JpaRepository<TypCdVw, TypCdVwKey> {
 
-    @Query(value = "SELECT * FROM TYP_CD_VW WHERE CDCI_CD_ITM_ID = ?1 AND UCFR_FLTR_VAL = ?2", nativeQuery = true)
-    List<TypCdVw> findByCdciCdItmIdAnducfrFltrVal(int cdciCdItmId, String ucfrFltrVal);
+    List<TypCdVw> findTypCdVwsByTypCdVwKey_CdciCdItmIdAndTypCdVwKey_UcfrFltrVal(int cdciCdItmId, String ucfrFltrVal);
 }

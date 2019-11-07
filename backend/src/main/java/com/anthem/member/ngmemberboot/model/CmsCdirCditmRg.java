@@ -9,29 +9,34 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
 @Entity
-@Table(name="TYP_CD_VW")
-public class TypCdVw {
+@Table(name="CMS_CDIR_CDITM_RGS")
+public class CmsCdirCditmRg {
 
     @EmbeddedId
-    private final TypCdVwKey typCdVwKey;
+    private final CmsCdirCditmRgPK id;
 
-    public TypCdVw( TypCdVwKey typCdVwKey ) {
-        this.typCdVwKey = typCdVwKey;
+    public CmsCdirCditmRg( CmsCdirCditmRgPK id ) {
+        this.id = id;
     }
+
+    @Column(name="CDCI_CD_ITM_ID")
+    public int cdciCdItmId;
 
     @Column(name="CDCI_ITM_VER_NBR")
     public short cdciItmVerNbr;
 
-    @Column(name="CDCV_CD_VAL_NM")
-    public String cdcvCdValNm;
+    @Column(name="CDIR_RGSTN_TMS")
+    public Timestamp cdirRgstnTms;
 
-    @Column(name="CDCV_DESC_TXT")
-    public String cdcvDescTxt;
+    @Column(name="MODIFY_DT_TM")
+    public Timestamp modifyDtTm;
 
-    @Column(name="CDIR_NTRNL_CD_NM")
-    public String cdirNtrnlCdNm;
+    @Column(name="MODIFY_USUS_ID")
+    public String modifyUsusId;
+
 }
